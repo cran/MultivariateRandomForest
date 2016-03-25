@@ -2,7 +2,7 @@
 % Please edit documentation in R/split_node.R
 \name{split_node}
 \alias{split_node}
-\title{split_node}
+\title{Splitting Criteria of all the nodes of the tree}
 \usage{
 split_node(X, Y, mtree, Index, i, model, min_leaf, V_inv, Command)
 }
@@ -11,24 +11,34 @@ split_node(X, Y, mtree, Index, i, model, min_leaf, V_inv, Command)
 
 \item{Y}{Output Training response of M x T, M is the number of samples and T is number of ouput Features(Response)}
 
-\item{mtree}{number of features will be used for each split}
+\item{mtree}{Number of randomly selected features used for each split}
 
 \item{Index}{Index of training samples}
 
-\item{i}{number of split}
+\item{i}{Number of split. Used as an index, which indicates where in the list the splitting
+criteria of this split will be stored.}
 
-\item{model}{The list of numbers where different spliting criteria has been stored}
+\item{model}{A list of lists with the spliting criteria of all the split of the nodes. In each iteration,
+a new list is included with the spliting criteria of the new split of a node.}
 
-\item{min_leaf}{minimum number of samples in the leaf node}
+\item{min_leaf}{Minimum number of samples in the leaf node. If a node has less than equal to min_leaf samples,
+then there will be no splitting in that node and this node is a leaf node.}
 
-\item{V_inv}{Covariance matrix of response matrix}
+\item{V_inv}{Covariance matrix of Output Feature matrix}
 
-\item{Command}{1 for RF and 2 for MRF}
+\item{Command}{1 for RF and 2 for MRF depending on the method}
 }
 \value{
-Model Updated Model after split has been done
+Model A list of lists with the spliting criteria of all the split of the nodes. In each iteration,
+the Model is updated with a new list which includes the spliting criteria of the new split of a node.
 }
 \description{
-The Splitting criteria in a node of a tree has been calculated
+Stores the Splitting criteria of all the nodes of a tree in a list
+}
+\details{
+This function calculates the spltting criteria of a node and stores the information in a list format. If the 
+node is a parent node, then index of left and right nodes and feature number and threshold value of the feature
+for the split has been stored. While if the node is a leaf, then output feature matrix of the samples for
+the node has been stored as a list in the Model.
 }
 

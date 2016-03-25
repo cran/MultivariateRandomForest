@@ -1,11 +1,11 @@
-#' cross validation
+#' Matrix of Input and Output of Cross validation
 #' 
-#' Generates Cross validated Matices and Output Response, where number of fold in cross validation is user defined
+#' Generates Cross validated Input Matices and Output Vectors, where number of fold in cross validation is user defined
 #'  
 #' @param X M x N Input matrix, M is the number of samples and N is the number of features
 #' @param Y output Response as column vector 
 #' @param F Number of Fold in cross validation
-#' @return list with the following components: 
+#' @return List with the following components: 
 #' \item{TrainingData}{List of matices with matrix containing Cross Validates Training Data, where number of list
 #' equal to user defined cross validation}
 #' \item{TestingData}{List of matices with matrix containing Cross Validates Testing Data, where number of list

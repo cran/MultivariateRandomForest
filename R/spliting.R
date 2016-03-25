@@ -1,17 +1,34 @@
-#' spliting
+#' Split of the Parent node
 #' 
-#' Spliting of training samples in a node using different feature vector has been calculated
+#' Split of the training samples of the parent node into the child node 
+#' for the feature which gives the minimum cost of splitting
 #'  
 #' @param X Input Training matrix of M x N, M is the number of training samples and N is the number of features
 #' @param Y Output Training response of M x T, M is the number of samples and T is number of ouput Features(Response)
-#' @param mtree number of features will be used for each split
+#' @param mtree number of randomly selected features used for each split
 #' @param Index Index of training samples
-#' @param V_inv Covariance matrix of response matrix
-#' @param Command 1 for RF and 2 for MRF
-#' @return Spliting criteria for the splitting of the node
-#' @details In a node of training samples, which spliting gives best cost reduction has been calculted. mtree number of feature
-#' are considered and for a specific feature and specific split point, leaf node and right node split cost has been calculated.
-#' Whichever feature and split has been given minimum cost has been selected and the criteria are returned
+#' @param V_inv Covariance matrix of Output Feature matrix
+#' @param Command 1 for RF and 2 for MRF depending on the method
+#' @return List with the following components:
+#' \item{index_left}{Index of the samples which are in the left node after splitting}
+#' \item{index_right}{Index of the samples which are in the right node after splitting}
+#' \item{which_feature}{The number of the feature which gives the minimum splitting cost}
+#' \item{threshold_feature}{The threshold value, which will decide a sample will go to the left node or,
+#' right node. If the training sample value is less than threshold value, it will go to the left node or if greater
+#' then go to the right node.}
+#' @details 
+#' In a node of a decision tree, there are number of samples with different features. In time of splitting, a fixed number
+#' of features(mtree) has been selected randomly(that's why it is called random forest). For the splitting, node cost 
+#' for all the spliting of these features are considered and whichever gives the minimum value has been selected as 
+#' the splitting criteria(feature value and threshold value of the feature) of this node split. 
+#' @examples
+#' X=matrix(runif(20*100),20,100)
+#' Y=matrix(runif(20*3),20,3)
+#' mtree=5
+#' Index=1:20
+#' V_inv=stats::cov(Y)
+#' Command=2#MRF, as number of output feature is greater than 1
+#' Split_criteria=spliting(X,Y,mtree,Index,V_inv,Command) 
 #' @export
 spliting <- function(X,Y,mtree,Index,V_inv,Command){
   x=X[Index, ]

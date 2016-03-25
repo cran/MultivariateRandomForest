@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_single_tree.R
 \name{build_single_tree}
 \alias{build_single_tree}
-\title{Build single tree of a forest}
+\title{Model of Single tree of Random Forest or Multivariate Random Forest}
 \usage{
 build_single_tree(X, Y, mtree, min_leaf, V_inv, Command)
 }
@@ -11,18 +11,22 @@ build_single_tree(X, Y, mtree, min_leaf, V_inv, Command)
 
 \item{Y}{Output Training response of M x T, M is the number of samples and T is number of ouput Features(Response)}
 
-\item{mtree}{number of features will be used for each split}
+\item{mtree}{Number of randomly selected features used for each split}
 
-\item{min_leaf}{minimum number of samples in the leaf node}
+\item{min_leaf}{Minimum number of samples in the leaf node}
 
-\item{V_inv}{Covariance matrix of response matrix}
+\item{V_inv}{Covariance matrix of Output Feature matrix}
 
-\item{Command}{1 for RF and 2 for MRF}
+\item{Command}{1 for RF and 2 for MRF depending on the method}
 }
 \value{
-Model of single tree of the forest
+Model of single tree of the forest(RF or MRF)
 }
 \description{
-Single tree using the training samples has been built and has been returned as a Model
+Build the model of a tree of RF or MRF using the training samples, which is used for the prediction of testing samples
+}
+\details{
+The Model contains the list of lists, where each list contains either the splitting criteria of a split in
+a node or, output feature matrix of the samples of a node depending upon which node the list is representing.
 }
 

@@ -2,18 +2,18 @@
 % Please edit documentation in R/Imputation.R
 \name{Imputation}
 \alias{Imputation}
-\title{Imputation of a output response}
+\title{Imputation of a vector of number}
 \usage{
 Imputation(XX)
 }
 \arguments{
-\item{XX}{Vector of response which needs to be imputed}
+\item{XX}{a vector of N x 1}
 }
 \value{
-Imputed values of that vector
+Imputed vector of N x 1
 }
 \description{
-In case some responses are missing, this function will impute those values.
+Imputes the values of the vector which are NaN
 }
 \details{
 If a value is missing, it will be replaced by an imputed value which is an average of previous and next value. While if previous 

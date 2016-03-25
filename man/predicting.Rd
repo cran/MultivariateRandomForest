@@ -2,24 +2,31 @@
 % Please edit documentation in R/predicting.R
 \name{predicting}
 \alias{predicting}
-\title{Prediction of testing sample}
+\title{Prediction of testing sample in a node}
 \usage{
 predicting(Single_Model, i, X_test, Variable_number)
 }
 \arguments{
-\item{Single_Model}{Model of a single particular tree}
+\item{Single_Model}{Model of a particular tree}
 
-\item{i}{number of which split needs to be done}
+\item{i}{Number of split. Used as an index, which indicates where in the list the splitting
+criteria of this split has been stored.}
 
 \item{X_test}{Testing samples of Q x N, Q is the number of testing samples and N is the number of features(same order and
 size used as training)}
 
-\item{Variable_number}{How many drugs are given for computation}
+\item{Variable_number}{Number of Output Features}
 }
 \value{
-Predicted response of a Testing samples
+Prediction result of a Testing samples in a node
 }
 \description{
-For a specific node, which way should the testing sample goes has been determined using spliting criteria stored in the model.
+Predicts a testing sample in a node, means which child node it will go using the splitting criteria of the model
+or, prediction results if the node is leaf.
+}
+\details{
+In a particular node, a testing sample can go in two directions, left node and right node. If the value of splitting feature
+of the testing sample is less than thresohold splitting value, it will go to the left otherwise in the right node.
+While if the node is leaf, then average of output features are returned as the prediction results.
 }
 

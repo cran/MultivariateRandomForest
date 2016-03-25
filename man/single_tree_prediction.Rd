@@ -2,27 +2,27 @@
 % Please edit documentation in R/single_tree_prediction.R
 \name{single_tree_prediction}
 \alias{single_tree_prediction}
-\title{single_tree_prediction}
+\title{Prediction of Testing Samples for single tree}
 \usage{
 single_tree_prediction(Single_Model, X_test, Variable_number)
 }
 \arguments{
-\item{Single_Model}{Model of a single particular tree}
+\item{Single_Model}{Random Forest or Multivariate Random Forest Model of a particular tree}
 
 \item{X_test}{Testing samples of Q x N, Q is the number of testing samples and N is the number of features(same order and
 size used as training)}
 
-\item{Variable_number}{Number of drugs which response needs to be calculated}
+\item{Variable_number}{Number of Output Features}
 }
 \value{
-predicted response of Testing samples for a single tree
+Prediction result of the Testing samples for a particular tree
 }
 \description{
-Using the model of the tree, for testing samples, prediction has been calculated
+Predicts the output features of testing samples using the model of a tree
 }
 \details{
-A model contrains for each split of the node what criteria has been used. For the testing samples, using the criteria
-testing sample reaches a leaf node, which have some response value stored. Average of these values are used as prediction
-for the testing samples
+A model contrains splitting criteria for all the split of the tree and output features of training samples in the leaf nodes.
+A testing sample using these criteria will go to a leaf node and average of the output feature vectors in the leaf node
+is considered as the prediction of that testing sample.
 }
 

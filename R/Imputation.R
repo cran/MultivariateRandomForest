@@ -1,10 +1,11 @@
-#' Imputation of a output response
+#' Imputation of a vector of number
 #' 
-#' In case some responses are missing, this function will impute those values. 
+#' Imputes the values of the vector which are NaN 
 #'  
-#' @param XX Vector of response which needs to be imputed
-#' @return Imputed values of that vector 
-#' @details If a value is missing, it will be replaced by an imputed value which is an average of previous and next value. While if previous 
+#' @param XX a vector of N x 1
+#' @return Imputed vector of N x 1
+#' @details 
+#' If a value is missing, it will be replaced by an imputed value which is an average of previous and next value. While if previous 
 #' or next value is also missing, the closet value has been used as an imputed value.
 #' @export
 Imputation <- function(XX){

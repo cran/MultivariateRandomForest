@@ -2,7 +2,7 @@
 % Please edit documentation in R/CrossValidation.R
 \name{CrossValidation}
 \alias{CrossValidation}
-\title{cross validation}
+\title{Matrix of Input and Output of Cross validation}
 \usage{
 CrossValidation(X, Y, F)
 }
@@ -14,7 +14,7 @@ CrossValidation(X, Y, F)
 \item{F}{Number of Fold in cross validation}
 }
 \value{
-list with the following components: 
+List with the following components: 
 \item{TrainingData}{List of matices with matrix containing Cross Validates Training Data, where number of list
 equal to user defined cross validation}
 \item{TestingData}{List of matices with matrix containing Cross Validates Testing Data, where number of list
@@ -26,6 +26,6 @@ equal to user defined cross validation}
 \item{FoldedIndex}{Index of Different Fold}
 }
 \description{
-Generates Cross validated Matices and Output Response, where number of fold in cross validation is user defined
+Generates Cross validated Input Matices and Output Vectors, where number of fold in cross validation is user defined
 }
 

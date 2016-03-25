@@ -1,15 +1,16 @@
-#' single_tree_prediction
+#' Prediction of Testing Samples for single tree
 #' 
-#' Using the model of the tree, for testing samples, prediction has been calculated
+#' Predicts the output features of testing samples using the model of a tree
 #'  
-#' @param Single_Model Model of a single particular tree
+#' @param Single_Model Random Forest or Multivariate Random Forest Model of a particular tree
 #' @param X_test Testing samples of Q x N, Q is the number of testing samples and N is the number of features(same order and
 #' size used as training) 
-#' @param Variable_number Number of drugs which response needs to be calculated 
-#' @return predicted response of Testing samples for a single tree
-#' @details A model contrains for each split of the node what criteria has been used. For the testing samples, using the criteria
-#' testing sample reaches a leaf node, which have some response value stored. Average of these values are used as prediction
-#' for the testing samples
+#' @param Variable_number Number of Output Features 
+#' @return Prediction result of the Testing samples for a particular tree
+#' @details 
+#' A model contrains splitting criteria for all the split of the tree and output features of training samples in the leaf nodes.
+#' A testing sample using these criteria will go to a leaf node and average of the output feature vectors in the leaf node
+#' is considered as the prediction of that testing sample.
 #' @export
 single_tree_prediction <- function(Single_Model,X_test,Variable_number){
   

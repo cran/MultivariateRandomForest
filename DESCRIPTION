@@ -1,15 +1,24 @@
 Package: MultivariateRandomForest
 Type: Package
 Title: Multivariate Random Forest for Linearly Related Output Features
-Version: 1.0
+Version: 1.1
 Date: 2016-03-11
 Author: Raziur Rahman <razeeebuet@gmail.com>
 Maintainer: Raziur Rahman <razeeebuet@gmail.com>
-Description: In Random Forest prediction has been done for single output feature, while linear relation between the output features are not considered. In this package, using linear relation of the output features, a multivariate random forest prediction has been done.
+Description: In Random Forest, prediction has been done for single
+  output feature, while linear relation between the
+  output features has not been considered in other
+  packages. In this package, using linear relation of
+  the output features, a multivariate random forest
+  prediction has been done, which can predict all the
+  output features with one Random forest. If there is
+  high correlation among the features, this MRF
+  prediction gives better result than the individual
+  RFs.
 License: GPL-3
 RoxygenNote: 5.0.1
 Imports: bootstrap, stats
-Packaged: 2016-03-12 19:16:24 UTC; razrahma
+Packaged: 2016-03-24 05:52:23 UTC; razrahma
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2016-03-13 11:29:37
+Date/Publication: 2016-03-25 00:40:02
