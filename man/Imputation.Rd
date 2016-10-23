@@ -2,21 +2,21 @@
 % Please edit documentation in R/Imputation.R
 \name{Imputation}
 \alias{Imputation}
-\title{Imputation of a vector of number}
+\title{Imputation of a numerical vector}
 \usage{
 Imputation(XX)
 }
 \arguments{
-\item{XX}{a vector of N x 1}
+\item{XX}{a vector of size N x 1}
 }
 \value{
-Imputed vector of N x 1
+Imputed vector of size N x 1
 }
 \description{
-Imputes the values of the vector which are NaN
+Imputes the values of the vector that are NaN
 }
 \details{
-If a value is missing, it will be replaced by an imputed value which is an average of previous and next value. While if previous 
-or next value is also missing, the closet value has been used as an imputed value.
+If a value is missing, it will be replaced by an imputed value that is an average of previous and 
+next value. If previous or next value is also missing, the closest value is used as the imputed value.
 }
 

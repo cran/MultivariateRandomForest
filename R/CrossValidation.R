@@ -1,20 +1,20 @@
-#' Matrix of Input and Output of Cross validation
+#' Generate training and testing samples for cross validation
 #' 
-#' Generates Cross validated Input Matices and Output Vectors, where number of fold in cross validation is user defined
+#' Generates Cross Validation Input Matrices and Output Vectors for training and testing, where number of folds in cross validation is user defined.
 #'  
 #' @param X M x N Input matrix, M is the number of samples and N is the number of features
-#' @param Y output Response as column vector 
-#' @param F Number of Fold in cross validation
+#' @param Y output responses as column vector 
+#' @param F Number of Folds
 #' @return List with the following components: 
-#' \item{TrainingData}{List of matices with matrix containing Cross Validates Training Data, where number of list
-#' equal to user defined cross validation}
-#' \item{TestingData}{List of matices with matrix containing Cross Validates Testing Data, where number of list
-#' equal to user defined cross validation}
-#' \item{OutputTrain}{List of matices with matrix containing Cross Validates Training Response Data, where number of list
-#' equal to user defined cross validation}
-#' \item{OutputTest}{List of matices with matrix containing Cross Validates Testing Response Data, where number of list
-#' equal to user defined cross validation}
-#' \item{FoldedIndex}{Index of Different Fold}
+#' \item{TrainingData}{List of matrices where each matrix contains a fold of Cross Validation Training Data, 
+#' where the number of matrices is equal to F}
+#' \item{TestingData}{List of matrices where each matrix contains a fold of Cross Validation Testing Data, 
+#' where the number of matrices is equal to F}
+#' \item{OutputTrain}{List of matrices where each matrix contains a fold of Cross Validation Training Output Feature Data, 
+#' where the number of matrices is equal to F}
+#' \item{OutputTest}{List of matrices where each matrix contains a fold of Cross Validation Testing Output Feature Data, 
+#' where the number of matrices is equal to F}
+#' \item{FoldedIndex}{Index of Different Folds. (e.g., for Sample Index 1:6 and 3 fold, FoldedIndex are [1 2 3 4], [1 2 5 6], [3 4 5 6])}
 #' @export
 
 CrossValidation <- function(X,Y,F) {

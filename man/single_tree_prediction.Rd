@@ -9,7 +9,7 @@ single_tree_prediction(Single_Model, X_test, Variable_number)
 \arguments{
 \item{Single_Model}{Random Forest or Multivariate Random Forest Model of a particular tree}
 
-\item{X_test}{Testing samples of Q x N, Q is the number of testing samples and N is the number of features(same order and
+\item{X_test}{Testing samples of size Q x N, Q is the number of testing samples and N is the number of features (same order and
 size used as training)}
 
 \item{Variable_number}{Number of Output Features}
@@ -18,11 +18,11 @@ size used as training)}
 Prediction result of the Testing samples for a particular tree
 }
 \description{
-Predicts the output features of testing samples using the model of a tree
+Predicts the output responses of testing samples based on the input regression tree
 }
 \details{
-A model contrains splitting criteria for all the split of the tree and output features of training samples in the leaf nodes.
-A testing sample using these criteria will go to a leaf node and average of the output feature vectors in the leaf node
-is considered as the prediction of that testing sample.
+A regression tree model contains splitting criteria for all the splits in the tree and output responses of training 
+samples in the leaf nodes. A testing sample using these criteria will reach a leaf node and the average of the 
+Output response vectors in the leaf node is considered as the prediction of the testing sample.
 }
 

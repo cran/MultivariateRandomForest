@@ -1,24 +1,38 @@
-#' Model of Single tree of Random Forest or Multivariate Random Forest
+#' Model of a single tree of Random Forest or Multivariate Random Forest
 #' 
-#' Build the model of a tree of RF or MRF using the training samples, which is used for the prediction of testing samples  
+#' Build a Univariate Regression Tree (for generation of Random Forest (RF) ) or Multivariate Regression Tree ( for generation of Multivariate Random Forest (MRF) ) using the training samples,
+#'  which is used for the prediction of testing samples.  
 #'  
-#' @param X Input Training matrix of M x N, M is the number of training samples and N is the number of features
-#' @param Y Output Training response of M x T, M is the number of samples and T is number of ouput Features(Response)
-#' @param mtree Number of randomly selected features used for each split
-#' @param min_leaf Minimum number of samples in the leaf node 
-#' @param V_inv Covariance matrix of Output Feature matrix
-#' @param Command 1 for RF and 2 for MRF depending on the method
-#' @return Model of single tree of the forest(RF or MRF) 
+#' @param X Input Feature matrix of M x N, M is the number of training samples and N is the number of input features
+#' @param Y Output Feature matrix of M x T, M is the number of training samples and T is the number of ouput features
+#' @param m_feature Number of randomly selected features considered for a split in each regression tree node, which must be positive integer and less than N (number of input features)
+#' @param min_leaf Minimum number of samples in the leaf node, which must be positive integer and less than or equal to M (number of training samples) 
+#' @param Inv_Cov_Y Inverse of Covariance matrix of Output Response matrix for MRF(Input [0 0;0 0] for RF)
+#' @param Command 1 for univariate Regression Tree (corresponding to RF) and 2 for Multivariate Regression Tree (corresponding to MRF)
+#' @return 
+#' Model of a single regression tree (Univariate or Multivariate Regression Tree). An example of the list of the non-leaf node:
+#' \item{Flag for determining whether the node is leaf node or branch node. 0 means branch node and 1 means leaf node.}{1}
+#' \item{Index of samples for the left node}{int [1:34] 1 2 4 5 ...}
+#' \item{Index of samples for the right node}{int [1:16] 3 6 9 ...}
+#' \item{Feature for split}{int 34}
+#' \item{Threshold values for split, average them}{num [1:3] 0.655 0.526 0.785}
+#' \item{List number for the left and right nodes}{num [1:2] 2 3}
+#' An example of the list of the leaf node:
+#' \item{Output responses}{num[1:4,1:5] 0.0724 0.1809 0.0699 ...}
 #' @details
-#' The Model contains the list of lists, where each list contains either the splitting criteria of a split in
-#' a node or, output feature matrix of the samples of a node depending upon which node the list is representing.
+#' The regression tree structure is represented as a list of lists. For a non-leaf node, it contains the splitting criteria 
+#' (feature for split and threshold) and for a leaf node, it contains the output responses for the samples contained in the leaf node. 
 #' @export
 #'
-build_single_tree <- function(X, Y, mtree, min_leaf,V_inv,Command){
-  model=rep( list(NULL), 10000 )
-  i=1
-  Index=1:nrow(X)
+build_single_tree <- function(X, Y, m_feature, min_leaf,Inv_Cov_Y,Command){
+  NN=round(nrow(X)/min_leaf)*100
+  Model=rep( list(NULL), NN )
+  for (k in 1:length(Model)){
+    Model[[k]]=c(3,rep( list(NULL), 5 ))
+  }
+  i=0
+  Index=0:(nrow(X)-1)
   
-  model=split_node(X,Y,mtree,Index,i,model,min_leaf,V_inv,Command)
-  return(model)
+  split_node(X,Y,m_feature,Index,i,Model,min_leaf,Inv_Cov_Y,Command)
+  return(Model)
 }

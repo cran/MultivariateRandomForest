@@ -4,29 +4,29 @@
 \alias{predicting}
 \title{Prediction of testing sample in a node}
 \usage{
-predicting(Single_Model, i, X_test, Variable_number)
+predicting(Single_Model, i, xt, Variable_number)
 }
 \arguments{
 \item{Single_Model}{Model of a particular tree}
 
-\item{i}{Number of split. Used as an index, which indicates where in the list the splitting
+\item{i}{Number of splits. Used as an index, which indicates where in the list the splitting
 criteria of this split has been stored.}
 
-\item{X_test}{Testing samples of Q x N, Q is the number of testing samples and N is the number of features(same order and
+\item{xt}{Testing samples of size 1 x N, 1 is the number of testing samples and N is the number of features (same order and
 size used as training)}
 
 \item{Variable_number}{Number of Output Features}
 }
 \value{
-Prediction result of a Testing samples in a node
+Prediction result of a testing samples in a node
 }
 \description{
-Predicts a testing sample in a node, means which child node it will go using the splitting criteria of the model
-or, prediction results if the node is leaf.
+Provides the value of a testing sample in a node that refers to which child node it will go to using the splitting criteria 
+of the tree node or the prediction results if the node is a leaf.
 }
 \details{
-In a particular node, a testing sample can go in two directions, left node and right node. If the value of splitting feature
-of the testing sample is less than thresohold splitting value, it will go to the left otherwise in the right node.
-While if the node is leaf, then average of output features are returned as the prediction results.
+The function considers the output at a particular node. If the node is a leaf, the average of output responses 
+is returned as prediction result. For a non-leaf node, the direction of left or right node is decided based on 
+the node threshold and splitting feature value.
 }
 
