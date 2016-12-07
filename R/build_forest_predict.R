@@ -56,7 +56,7 @@ build_forest_predict <- function(trainX, trainY, n_tree, m_feature, min_leaf, te
   if (class(n_tree)=="character" || n_tree%%1!=0 || n_tree<1) stop('Number of trees in the forest can not be fractional or negative integer or string')
   if (class(m_feature)=="character" || m_feature%%1!=0 || m_feature<1) stop('Number of randomly selected features considered for a split can not be fractional or negative integer or string')
   if (class(min_leaf)=="character" || min_leaf%%1!=0 || min_leaf<1 || min_leaf>nrow(trainX)) stop('Minimum leaf number can not be fractional or negative integer or string or greater than number of samples')
-   
+  
   theta <- function(trainX){trainX}
   results <- bootstrap::bootstrap(1:nrow(trainX),n_tree,theta) 
   b=results$thetastar

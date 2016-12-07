@@ -19,7 +19,7 @@ single_tree_prediction <- function(Single_Model,X_test,Variable_number){
   
   for (k in 1:nrow(X_test)){
     xt=X_test[k, ]
-    i=0
+    i=1
     Result_temp=predicting(Single_Model,i,xt,Variable_number)
     Y_pred[k,]=unlist(Result_temp)
     

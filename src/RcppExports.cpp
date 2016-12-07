@@ -5,25 +5,6 @@
 
 using namespace Rcpp;
 
-// split_node
-List split_node(NumericMatrix X, NumericMatrix Y, int m_feature, IntegerVector Index, int i, List Model, int min_leaf, NumericMatrix Inv_Cov_Y, int Command);
-RcppExport SEXP MultivariateRandomForest_split_node(SEXP XSEXP, SEXP YSEXP, SEXP m_featureSEXP, SEXP IndexSEXP, SEXP iSEXP, SEXP ModelSEXP, SEXP min_leafSEXP, SEXP Inv_Cov_YSEXP, SEXP CommandSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< NumericMatrix >::type X(XSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type Y(YSEXP);
-    Rcpp::traits::input_parameter< int >::type m_feature(m_featureSEXP);
-    Rcpp::traits::input_parameter< IntegerVector >::type Index(IndexSEXP);
-    Rcpp::traits::input_parameter< int >::type i(iSEXP);
-    Rcpp::traits::input_parameter< List >::type Model(ModelSEXP);
-    Rcpp::traits::input_parameter< int >::type min_leaf(min_leafSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type Inv_Cov_Y(Inv_Cov_YSEXP);
-    Rcpp::traits::input_parameter< int >::type Command(CommandSEXP);
-    __result = Rcpp::wrap(split_node(X, Y, m_feature, Index, i, Model, min_leaf, Inv_Cov_Y, Command));
-    return __result;
-END_RCPP
-}
 // splitt
 List splitt(NumericMatrix X, NumericMatrix Y, int m_feature, NumericVector Index, NumericMatrix Inv_Cov_Y, int Command, NumericVector ff);
 RcppExport SEXP MultivariateRandomForest_splitt(SEXP XSEXP, SEXP YSEXP, SEXP m_featureSEXP, SEXP IndexSEXP, SEXP Inv_Cov_YSEXP, SEXP CommandSEXP, SEXP ffSEXP) {
@@ -51,20 +32,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericMatrix >::type Inv_Cov_Y(Inv_Cov_YSEXP);
     Rcpp::traits::input_parameter< int >::type Command(CommandSEXP);
     __result = Rcpp::wrap(Node_cost(y, Inv_Cov_Y, Command));
-    return __result;
-END_RCPP
-}
-// predicting
-List predicting(List Single_Model, int i, NumericVector xt, int Variable_number);
-RcppExport SEXP MultivariateRandomForest_predicting(SEXP Single_ModelSEXP, SEXP iSEXP, SEXP xtSEXP, SEXP Variable_numberSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< List >::type Single_Model(Single_ModelSEXP);
-    Rcpp::traits::input_parameter< int >::type i(iSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type xt(xtSEXP);
-    Rcpp::traits::input_parameter< int >::type Variable_number(Variable_numberSEXP);
-    __result = Rcpp::wrap(predicting(Single_Model, i, xt, Variable_number));
     return __result;
 END_RCPP
 }

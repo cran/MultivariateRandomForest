@@ -4,7 +4,7 @@
 \alias{predicting}
 \title{Prediction of testing sample in a node}
 \usage{
-predicting(Single_Model, i, xt, Variable_number)
+predicting(Single_Model, i, X_test, Variable_number)
 }
 \arguments{
 \item{Single_Model}{Model of a particular tree}
@@ -12,7 +12,7 @@ predicting(Single_Model, i, xt, Variable_number)
 \item{i}{Number of splits. Used as an index, which indicates where in the list the splitting
 criteria of this split has been stored.}
 
-\item{xt}{Testing samples of size 1 x N, 1 is the number of testing samples and N is the number of features (same order and
+\item{X_test}{Testing samples of size 1 x N, 1 is the number of testing samples and N is the number of features (same order and
 size used as training)}
 
 \item{Variable_number}{Number of Output Features}
