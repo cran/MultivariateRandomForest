@@ -25,4 +25,3 @@ A regression tree model contains splitting criteria for all the splits in the tr
 samples in the leaf nodes. A testing sample using these criteria will reach a leaf node and the average of the 
 Output response vectors in the leaf node is considered as the prediction of the testing sample.
 }
-

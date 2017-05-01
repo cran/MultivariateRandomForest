@@ -19,4 +19,3 @@ Imputes the values of the vector that are NaN
 If a value is missing, it will be replaced by an imputed value that is an average of previous and 
 next value. If previous or next value is also missing, the closest value is used as the imputed value.
 }
-

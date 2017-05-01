@@ -60,6 +60,7 @@ testX=matrix(runif(10*100),10,100)
 #Prediction size is 10 x 5, where 10 is the number 
 #of testing samples and 5 is the number of output features
 Prediction=build_forest_predict(trainX, trainY, n_tree, m_feature, min_leaf, testX)
+
 }
 \references{
 [Random Forest] Breiman, Leo. "Random forests." Machine learning 45.1 (2001): 5-32.
@@ -67,4 +68,3 @@ Prediction=build_forest_predict(trainX, trainY, n_tree, m_feature, min_leaf, tes
 [Multivariate Random Forest] Segal, Mark, and Yuanyuan Xiao. "Multivariate random forests." 
 Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery 1.1 (2011): 80-87.
 }
-

@@ -21,7 +21,7 @@ build_single_tree(X, Y, m_feature, min_leaf, Inv_Cov_Y, Command)
 }
 \value{
 Model of a single regression tree (Univariate or Multivariate Regression Tree). An example of the list of the non-leaf node:
-\item{Flag for determining node status; leaf node (1) or branch node (0)}{1}
+\item{Flag for determining whether the node is leaf node or branch node. 0 means branch node and 1 means leaf node.}{1}
 \item{Index of samples for the left node}{int [1:34] 1 2 4 5 ...}
 \item{Index of samples for the right node}{int [1:16] 3 6 9 ...}
 \item{Feature for split}{int 34}
@@ -38,4 +38,3 @@ Build a Univariate Regression Tree (for generation of Random Forest (RF) ) or Mu
 The regression tree structure is represented as a list of lists. For a non-leaf node, it contains the splitting criteria 
 (feature for split and threshold) and for a leaf node, it contains the output responses for the samples contained in the leaf node.
 }
-

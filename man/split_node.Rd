@@ -24,21 +24,20 @@ a new list is included with the spliting criteria of the new split of a node.}
 \item{min_leaf}{Minimum number of samples in the leaf node. If a node has less than or, equal to min_leaf samples,
 then there will be no splitting in that node and the node is a leaf node. Valid input is a positive integer and less than or equal to M (number of training samples)}
 
-\item{Inv_Cov_Y}{Inverse of Covariance matrix of Output Response matrix for MRF (Input [0 0; 0 0] for RF)}
+\item{Inv_Cov_Y}{Inverse of Covariance matrix of Output Response matrix for MRF(Give Zero for RF)}
 
 \item{Command}{1 for univariate Regression Tree (corresponding to RF) and 2 for Multivariate Regression Tree (corresponding to MRF)}
 }
 \value{
-model: A list of lists with the splitting criteria of all the split of the nodes. In each iteration, the Model is 
+Model: A list of lists with the splitting criteria of all the split of the nodes. In each iteration, the Model is
 updated with a new list that includes the splitting criteria of the new split of a node.
 }
 \description{
 Stores the Splitting criteria of all the nodes of a tree in a list
 }
 \details{
-This function calculates the splitting criteria of a node and stores the information in a list format. 
-If the node is a parent node, then indices of left and right nodes and feature number and threshold value 
-of the feature for the split are stored. If the node is a leaf, the output feature matrix of the samples 
+This function calculates the splitting criteria of a node and stores the information in a list format.
+If the node is a parent node, then indices of left and right nodes and feature number and threshold value
+of the feature for the split are stored. If the node is a leaf, the output feature matrix of the samples
 for the node are stored as a list.
 }
-

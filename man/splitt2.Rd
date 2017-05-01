@@ -1,8 +1,8 @@
-\name{splitt}
-\alias{splitt}
+\name{splitt2}
+\alias{splitt2}
 \title{Split of the Parent node}
 \usage{
-splitt(X, Y, m_feature, Index, Inv_Cov_Y, Command, ff)
+splitt2(X, Y, m_feature, Index, Inv_Cov_Y, Command, ff)
 }
 \arguments{
 \item{X}{Input Training matrix of size M x N, M is the number of training samples and N is the number of features}
@@ -45,6 +45,6 @@ Inv_Cov_Y=solve(cov(Y))
 ff2 = ncol(X) # number of features
 ff =sort(sample(ff2, m_feature)) 
 Command=2#MRF, as number of output feature is greater than 1
-Split_criteria=splitt(X,Y,m_feature,Index,Inv_Cov_Y,Command,ff) 
+Split_criteria=splitt2(X,Y,m_feature,Index,Inv_Cov_Y,Command,ff) 
 }
 

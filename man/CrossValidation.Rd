@@ -9,7 +9,7 @@ CrossValidation(X, Y, F)
 \arguments{
 \item{X}{M x N Input matrix, M is the number of samples and N is the number of features}
 
-\item{Y}{output response as column vector}
+\item{Y}{output responses as column vector}
 
 \item{F}{Number of Folds}
 }
@@ -28,4 +28,3 @@ where the number of matrices is equal to F}
 \description{
 Generates Cross Validation Input Matrices and Output Vectors for training and testing, where number of folds in cross validation is user defined.
 }
-

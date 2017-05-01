@@ -1,20 +1,11 @@
-#' Imputation of a numerical vector
-#' 
-#' Imputes the values of the vector that are NaN 
-#'  
-#' @param XX a vector of size N x 1
-#' @return Imputed vector of size N x 1
-#' @details 
-#' If a value is missing, it will be replaced by an imputed value that is an average of previous and 
-#' next value. If previous or next value is also missing, the closest value is used as the imputed value.
-#' @export
+
 Imputation <- function(XX){
   w = which(is.na(XX), arr.ind=TRUE)
-  r=w[,1] 
+  r=w[,1]
   c=w[,2]
   for (i in 1:length(r)){
     XX[r[i],c[i]]=0
-  }  
+  }
   XX=matrix(as.numeric(XX),ncol=1)
   if (length(r)!=0){
     for (i in 1:length(r)){
@@ -50,7 +41,7 @@ Imputation <- function(XX){
         temp=XX[r[i]-1,1]
       }else{
         temp=0.5*(XX[r[i]-1,1]+XX[r[i]+1,1])
-      }      
+      }
       XX[r[i],1]=temp
     }
   }
